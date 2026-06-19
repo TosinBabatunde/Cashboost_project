@@ -1,0 +1,29 @@
+[0m14:02:57.060086 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11033ee40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111f5bed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111f5bc50>]}
+
+
+============================== 14:02:57.064457 | 55970f5d-eada-4492-babd-6ae12f916c9c ==============================
+[0m14:02:57.064457 [info ] [MainThread]: Running with dbt=1.11.8
+[0m14:02:57.064954 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'write_json': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'version_check': 'True', 'log_path': 'logs', 'static_parser': 'True', 'invocation_command': 'dbt init cashboost_dbt', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'target_path': 'None', 'introspect': 'True', 'profiles_dir': '/Users/adeol/.dbt', 'empty': 'None', 'debug': 'False', 'no_print': 'None', 'cache_selected_only': 'False', 'partial_parse': 'True', 'indirect_selection': 'eager', 'log_cache_events': 'False'}
+[0m14:02:57.078055 [debug] [MainThread]: Starter project path: /opt/anaconda3/lib/python3.13/site-packages/dbt/include/starter_project
+[0m14:02:57.083415 [info ] [MainThread]: 
+Your new dbt project "cashboost_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m14:02:57.083665 [info ] [MainThread]: Setting up your profile.
+[0m14:03:08.058425 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 11.064318, "process_in_blocks": "0", "process_kernel_time": 0.291447, "process_mem_max_rss": "116523008", "process_out_blocks": "0", "process_user_time": 1.092052}
+[0m14:03:08.059108 [debug] [MainThread]: Command `dbt init` succeeded at 14:03:08.058987 after 11.07 seconds
+[0m14:03:08.059460 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111fd48a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111693890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112b106b0>]}
+[0m14:03:08.059780 [debug] [MainThread]: Flushing usage events
+[0m14:03:08.478283 [debug] [MainThread]: An error was encountered while trying to flush usage events
