@@ -1,0 +1,33 @@
+version: 2
+
+models:
+ - name: stg_cashboost_farmers
+   description: "Cleaned and renamed farmer data from the Cashboost program"
+   columns:
+     - name: farmer_id
+       description: "Unique identifier for each farmer"
+       data_tests:
+         - unique # checks that no farmer ids are duplicated, all unique
+         - not_null # checks that there are no null farmer ids, each row has one
+
+     - name: treatment_group
+       description: "Whether farmer received cash transfer or not: treat vs control"
+       data_tests:
+         - not_null # checks that every farmer is either in the treat or control group
+         - accepted_values: # only values we should see in column
+            arguments:
+              values: ["Treatment", "Control"]
+
+     - name: region
+       description: "Location of farmer and farm"
+       data_tests:
+         - not_null # checks that every farmer has a location
+         - accepted_values:
+            arguments:
+              values: ["North", "South", "Central"]   
+
+     - name: baseline_income_usd
+       description: "Income at start of program"
+       data_tests:
+         - not_null # checks that every farmer has an income at baseline
+         
