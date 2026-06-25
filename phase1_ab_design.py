@@ -26,7 +26,7 @@ baseline_mean = 120
 expected_effect = 0.1666 # we expect a 16.66% increase in income due to the program (increase of $20 on a baseline of $120)#
 std_dev = 60 # standard deviation of income in the population; spread of income data ($60 means that most farmers' income will be within $60 of the mean )
 
-effect_size = expected_effect * baseline_mean / std_dev # calculate Cohen's d (effect size)#
+effect_size = expected_effect * baseline_mean / std_dev # calculate Cohen's d (effect size) effect size here is 0.333#
 alpha = 0.05 # significance level
 power = 0.8 # desired power
 
