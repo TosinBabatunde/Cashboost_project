@@ -1,3 +1,7 @@
+
+#----------------------------------------------------------------
+# LOAD DATA AND LIBRARIES
+#----------------------------------------------------------------
 #import sys
 #print("PYTHON VERSION:", sys.version)
 #print("PYTHON PATH:", sys.executable)
@@ -26,7 +30,10 @@ con.close() # close the connection to the DuckDB database after retrieving the d
 
 # print(df.head())
 
+#----------------------------------------------------------------
 # DEFINING TREATMENT AND CONTROL GROUPS
+#----------------------------------------------------------------
+
 # filtering: first filter the dataframe to include only rows where the treatment or control columns (is equal to 1 , and select their "income_change_usd" column as well. 
 treatment = df[df["treatment"] == 1]["income_change_usd"] 
 control = df[df["treatment"] == 0]["income_change_usd"]
@@ -37,7 +44,10 @@ control = df[df["treatment"] == 0]["income_change_usd"]
 # print (f"Control avg income change: ${control.mean():.2f}")
 # print (f"Raw difference: ${treatment.mean() - control.mean():.2f}")
 
-# T - TEST & P - VALUE : Is the test result statistically significant? (p < 0.05)
+#----------------------------------------------------------------
+# T - TEST & P - VALUE
+# Is the test result statistically significant? (p < 0.05)
+#----------------------------------------------------------------
 # this is to perform a two-sample t-test to compare the means of the treatment and control groups. 
 
 t_stat, p_value = stats.ttest_ind(treatment, control) #running and independent t-test because the two groups are independent of each other.
@@ -55,7 +65,11 @@ else:
     print("\n Result is NOT statistically significant (p >= 0.05)")
     print(" The income difference could be due to random chance, suggesting that the treatment may not have had a significant effect.")
 
-# EFFECT SIZE (COHEN'S D): Is the effect meaningful?
+#----------------------------------------------------------------
+# EFFECT SIZE (COHEN'S D)
+# Is the effect meaningful?
+#----------------------------------------------------------------
+
 # this is to calculate the effect size using Cohen's d, which measures the standardized difference between two groups
 def cohens_d(group1, group2):
     diff = group1.mean() - group2.mean()
@@ -80,7 +94,10 @@ else:
 
 print(f"\nThe program produced a medium-sized effect (Cohen's d = {d: .4f}), indicating a practically meaningful improvemnet in household income beyond what we would expect by chnace.")
 
-# Confidence Intervals: How precise is the estimate of the effect?
+#----------------------------------------------------------------
+# CONFIDENCE INTERVALS: 
+# How precise is the estimate of the effect?
+#----------------------------------------------------------------
 # this is to calculate the 95% confidence intervals for the treatment and control groups, 
 # Which provides a range of values within which we can be 95% confident that the true mean lies. This helps to understand the precision of the estimated effect.
 
@@ -111,7 +128,10 @@ print(f"   is between ${lower:.2f} and ${upper:.2f} per month.")
 print(f"\n The CashBooost program produced an estimated monthly income increase of ${treatment.mean() - control.mean():.2f}")
 print(f"      95% CI: ${lower:.2f} - ${upper:.2f}, a statistically significant and practically meaningful result")
 
-# VISUALIZATION: Distribution of Income Change
+#----------------------------------------------------------------
+# VISUALIZATION
+# Distribution of Income Change
+#----------------------------------------------------------------
 
 sns.set_theme(style="whitegrid") #sets a clean visual style for all charts, whitegrid just gives a white background
 fig, axes = plt.subplots(1,2, figsize=(12, 5)) #creates a figure with 1 row and 2 columns of subplots, with a total size of 12 inches by 5 inches
