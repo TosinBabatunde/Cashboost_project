@@ -1,5 +1,12 @@
 # CashBoost Project - Command Log
 
+## Updating the COMMAND LOG - INSTRUCTIONS
+```bash
+git add COMMANDS.md
+git commit -m "Update command log"
+git push
+```
+
 ## Setup
 ```bash
 pip install dbt-duckdb --break-system-packages #installed dbt and DuckDB for database storage
